@@ -12,3 +12,8 @@ class Owner(models.Model):
         ('O', 'Other'),
     )
     gender = models.CharField(max_length=10, choices=GENDER)
+
+class Closet(models.Model):
+    owner = models.ForeignKey(Owner)
+    name = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)

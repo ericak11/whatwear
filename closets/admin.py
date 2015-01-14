@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from closets.models import Owner
 from closets.models import Closet
 from closets.models import Item
+from closets.models import Tag
+
 # Register your models here.
 
 class OwnerInline(admin.StackedInline):
@@ -20,3 +22,4 @@ admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(Closet)
 admin.site.register(Item)
+admin.site.register(Tag)

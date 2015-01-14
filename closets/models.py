@@ -12,6 +12,8 @@ class Owner(models.Model):
         ('O', 'Other'),
     )
     gender = models.CharField(max_length=10, choices=GENDER)
+    def __unicode__(self):              # __unicode__ on Python 2
+      return self.user.username
 
 class Closet(models.Model):
     owner = models.ForeignKey(Owner)

@@ -1,10 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
-from closets.models import Owner
-from closets.models import Closet
-from closets.models import Item
-from closets.models import Tag
+from closets.models import
+
 
 # Register your models here.
 

@@ -25,3 +25,4 @@ class TagForm(forms.ModelForm):
     class Meta:
         model = Closet
         fields = ('name',)
+

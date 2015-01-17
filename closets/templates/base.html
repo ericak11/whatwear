@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <title>What Wear</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+    </head>
+
+    <body>
+        <div id='header'>
+            <ul>
+                <li><a href="/">Home</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="/">Logout</a></li>
+            {% else %}
+                <li><a href="/">Register Here</a></li>
+            {% endif %}
+            </ul>
+        </div>
+
+        <hr />
+        <div id='body'>
+            {% block body_block %}{% endblock %}
+        </div>
+
+
+
+    </body>
+</html>

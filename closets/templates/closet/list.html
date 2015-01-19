@@ -1,0 +1,10 @@
+{% extends "./base.html" %}
+
+{% block body_block %}
+    <h2>Closets</h2>
+    <ul>
+        {% for closet in object_list %}
+            <li>{{ closet }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

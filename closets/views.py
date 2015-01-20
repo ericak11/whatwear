@@ -10,5 +10,5 @@ class OwnerList(ListView):
 class ClosetList(ListView):
     template_name = 'closet/list.html'
     def get_queryset(self):
-        self.owner = get_object_or_404(Owner, owner=self.args[0])
+        self.owner = get_object_or_404(Owner, id=self.args[0])
         return Closet.objects.filter(owner=self.owner)

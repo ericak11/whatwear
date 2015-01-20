@@ -4,7 +4,7 @@
     <h2>Owners</h2>
     <ul>
         {% for owner in object_list %}
-            <li>{{ owner }}</li>
+            <li><a href="{% url 'closet_list' owner.id %}">{{ owner }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

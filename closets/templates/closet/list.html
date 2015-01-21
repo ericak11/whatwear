@@ -4,7 +4,7 @@
     <h2>Closets</h2>
     <ul>
         {% for closet in object_list %}
-            <li>{{ closet }}</li>
+            <li>{{ closet }} - <a href="{% url 'closet_update' closet.id %}">Edit</a></li>
         {% endfor %}
     </ul>
 

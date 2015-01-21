@@ -7,4 +7,7 @@
             <li><a href="{% url 'closet_list' owner.id %}">{{ owner }}</a></li>
         {% endfor %}
     </ul>
+
+<a href="{% url 'owner_add' %}">Create User</a>
+
 {% endblock %}

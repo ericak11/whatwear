@@ -22,8 +22,6 @@ class Closet(models.Model):
     location = models.CharField(max_length=200)
     def __unicode__(self):              # __unicode__ on Python 2
       return self.name
-    # def get_absolute_url(self):
-    #   return reverse('closet_detail', kwargs={'pk': self.pk})
 
 class Tag(models.Model):
     name = models.CharField(max_length=200)

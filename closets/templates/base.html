@@ -11,9 +11,9 @@
             <ul>
                 <li><a href="/">Home</a></li>
             {% if user.is_authenticated %}
-                <li><a href="/">Logout</a></li>
+                <li><a href="/accounts/logout">Logout</a></li>
             {% else %}
-                <li><a href="/">Register Here</a></li>
+                <li><a href="/accounts/register">Register Here</a></li>
             {% endif %}
             </ul>
         </div>

@@ -3,10 +3,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from closets.models import Owner, Closet, Tag, Item
-# from closets.forms import UserForm, ClosetForm, ItemForm, TagForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from closets.models import Closet
 
 # Create your views here.
 

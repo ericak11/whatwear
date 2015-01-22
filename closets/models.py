@@ -5,19 +5,8 @@ from django.core.urlresolvers import reverse
 
 # Create your models here.
 
-class Owner(models.Model):
-    user = models.OneToOneField(User)
-    GENDER = (
-        ('F', 'Female'),
-        ('M', 'Male'),
-        ('O', 'Other'),
-    )
-    gender = models.CharField(max_length=10, choices=GENDER)
-    def __unicode__(self):              # __unicode__ on Python 2
-      return self.user.username
-
 class Closet(models.Model):
-    owner = models.ForeignKey(Owner)
+    user = models.ForeignKey(User)
     name = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
     def __unicode__(self):              # __unicode__ on Python 2

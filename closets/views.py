@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
-from closets.models import Owner, Closet, Tag, Item
+from closets.models import Closet, Tag, Item
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
@@ -12,6 +12,9 @@ class ClosetCreate(CreateView):
     model = Closet
     fields = ['name', 'location']
     template_name = 'closet/new.html'
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super(ClosetCreate, self).form_valid(form)
 
 class ClosetUpdate(UpdateView):
     model = Closet
@@ -25,13 +28,9 @@ class ClosetDelete(DeleteView):
 class ClosetList(ListView):
     template_name = 'closet/list.html'
     def get_queryset(self):
-        self.owner = get_object_or_404(Owner, id=self.args[0])
-        return Closet.objects.filter(owner=self.owner)
+        self.user = get_object_or_404(User, id=self.args[0])
+        return Closet.objects.filter(user=self.user)
 
-class OwnerList(ListView):
-    model = Owner
-    template_name = 'owner/list.html'
-
-class OwnerCreate(CreateView):
+class UserList(ListView):
     model = User
-    template_name = 'owner/new.html'
+    template_name = 'user/list.html'

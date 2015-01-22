@@ -1,0 +1,12 @@
+{% extends "./base.html" %}
+
+{% block body_block %}
+    <h2>Users</h2>
+    <ul>
+        {% for user in object_list %}
+            <li><a href="{% url 'closet_list' user.id %}">{{ user }}</a></li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

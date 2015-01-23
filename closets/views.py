@@ -13,7 +13,7 @@ class ClosetCreate(CreateView):
     fields = ['name', 'location']
     template_name = 'closet/new.html'
     def form_valid(self, form):
-        form.instance.owner = self.request.user
+        form.instance.user = self.request.user
         return super(ClosetCreate, self).form_valid(form)
 
 class ClosetUpdate(UpdateView):
@@ -34,3 +34,24 @@ class ClosetList(ListView):
 class UserList(ListView):
     model = User
     template_name = 'user/list.html'
+
+class ItemCreate(CreateView):
+    model = Item
+    template_name = 'item/new.html'
+    def form_valid(self, form):
+        form.instance.closet = self.request.closet
+        return super(ItemCreate, self).form_valid(form)
+
+class ItemUpdate(UpdateView):
+    model = Item
+    template_name = 'item/new.html'
+
+class ItemDelete(DeleteView):
+    model = Item
+    success_url = reverse_lazy('item_list')
+
+class ItemList(ListView):
+    template_name = 'item/list.html'
+    def get_queryset(self):
+        self.closet = get_object_or_404(Closet, id=self.args[0])
+        return Item.objects.filter(closet=self.closet)

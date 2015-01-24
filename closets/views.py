@@ -37,6 +37,7 @@ class UserList(ListView):
 
 class ItemCreate(CreateView):
     model = Item
+    fields = ['name', 'content', 'category', 'photo', 'tags']
     template_name = 'item/new.html'
     def form_valid(self, form):
         form.instance.closet = self.request.closet
@@ -51,7 +52,9 @@ class ItemDelete(DeleteView):
     success_url = reverse_lazy('item_list')
 
 class ItemList(ListView):
+
     template_name = 'item/list.html'
     def get_queryset(self):
         self.closet = get_object_or_404(Closet, id=self.args[0])
         return Item.objects.filter(closet=self.closet)
+

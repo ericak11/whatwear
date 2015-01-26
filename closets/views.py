@@ -39,8 +39,9 @@ class ItemCreate(CreateView):
     model = Item
     fields = ['name', 'content', 'category', 'photo', 'tags']
     template_name = 'item/new.html'
-    def form_valid(self, form):
-        form.instance.closet = self.request.closet
+    def form_valid(self, form, **kwargs):
+        self.closet = get_object_or_404(Closet, id=self.args[0])
+        form.instance.closet = self.closet
         return super(ItemCreate, self).form_valid(form)
 
 class ItemUpdate(UpdateView):
@@ -52,8 +53,15 @@ class ItemDelete(DeleteView):
     success_url = reverse_lazy('item_list')
 
 class ItemList(ListView):
-
     template_name = 'item/list.html'
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        self.closet = get_object_or_404(Closet, id=self.args[0])
+        context = super(ItemList, self).get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['item_list'] = Item.objects.filter(closet=self.closet)
+        context['closet'] =  self.closet
+        return context
     def get_queryset(self):
         self.closet = get_object_or_404(Closet, id=self.args[0])
         return Item.objects.filter(closet=self.closet)

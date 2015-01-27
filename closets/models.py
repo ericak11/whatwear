@@ -34,4 +34,5 @@ class Item(models.Model):
     tags = models.ManyToManyField(Tag)
     def __unicode__(self):              # __unicode__ on Python 2
       return self.name
-
+    def get_absolute_url(self):
+        return u'/closets/items/%d' % self.closet.id

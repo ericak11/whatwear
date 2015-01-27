@@ -40,7 +40,7 @@ class ItemCreate(CreateView):
     fields = ['name', 'content', 'category', 'photo', 'tags']
     template_name = 'item/new.html'
     def form_valid(self, form, **kwargs):
-        self.closet = get_object_or_404(Closet, id=self.args[0])
+        self.closet = get_object_or_404(Closet, id=self.kwargs.get("closetid"))
         form.instance.closet = self.closet
         return super(ItemCreate, self).form_valid(form)
 

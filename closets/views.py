@@ -66,3 +66,6 @@ class ItemList(ListView):
         self.closet = get_object_or_404(Closet, id=self.args[0])
         return Item.objects.filter(closet=self.closet)
 
+class TagCreate(CreateView):
+    model = Tag
+    template_name = 'tag/new.html'

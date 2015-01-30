@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from closets.models import Closet, Tag, Item
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
@@ -69,3 +69,7 @@ class ItemList(ListView):
 class TagCreate(CreateView):
     model = Tag
     template_name = 'tag/new.html'
+
+class ItemDetailView(DetailView):
+    model = Item
+    template_name = 'item/detail.html'

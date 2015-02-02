@@ -90,7 +90,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+MEDIA_ROOT = '/localhost:8000/media/'
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 
 # import dj_database_url

@@ -5,9 +5,10 @@
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <p>{{ item.content }}</p>
 <p>{{ item.get_category_display }}</p>
-{{ item.photo }}
+{{ item.photo.path }}
 
-<img src="/closets/{{ item.photo }}">
+<p><img src="{{ item.photo }}" width="200"/></p>
+
 
 
 <!-- {% for tag in item.tag_set %}

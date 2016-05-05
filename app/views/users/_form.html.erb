@@ -1,9 +1,8 @@
-  <%= form.label :email  %>
+<label class="required"> Denotes a required field </label>
+<br>
+<br>
 <div class="inline fields">
-  <%= form.text_field :email, type: 'email' %>
-</div>
-<%= form.label :name %>
-<div class="inline fields">
+  <%= form.label :name, class: "required" %>
   <div class="three wide field">
     <%= form.text_field :first_name, placeholder: 'First Name' %>
   </div>
@@ -11,8 +10,14 @@
     <%= form.text_field :last_name, placeholder: 'Last Name' %>
   </div>
 </div>
-<%= form.label :password %>
 <div class="inline fields">
+  <%= form.label :email, class: "required"  %>
+  <div class="five wide field">
+    <%= form.text_field :email, type: 'email' %>
+  </div>
+</div>
+<div class="inline fields">
+  <%= form.label :password, class: "required" %>
   <div class="three wide field">
     <%= form.password_field :password, placeholder: 'Password' %>
   </div>

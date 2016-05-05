@@ -14,3 +14,9 @@
  *= require_self
  *= require semantic_ui/semantic_ui
  */
+
+label.required:after {
+  content:" *";
+  color: red;
+}
+

@@ -1,0 +1,18 @@
+{% extends './base.html' %}
+    {% block body_block %}
+<h1>{{ item.name }} </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<p>{{ item.content }}</p>
+<p>{{ item.get_category_display }}</p>
+{{ item.photo.path }}
+
+<p><img src="{{ item.photo }}" width="200"/></p>
+
+
+
+<!-- {% for tag in item.tag_set %}
+      <li>
+        <p>{{ tag }} </p>
+{% endfor %} -->
+{% endblock %}

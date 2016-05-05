@@ -1,0 +1,13 @@
+{% extends "./base.html" %}
+
+{% block body_block %}
+    <h2>Closets</h2>
+    <ul>
+        {% for closet in object_list %}
+            <li>{{ closet }} -<a href="{% url 'item_list' closet.id %}">See Items</a> | <a href="{% url 'closet_update' closet.id %}">Edit</a></li>
+        {% endfor %}
+    </ul>
+
+<a href="{% url 'closet_add' %}">Add a Closet</a>
+
+{% endblock %}

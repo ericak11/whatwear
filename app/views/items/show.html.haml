@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @item.name
+%p
+  %b Description:
+  = @item.description
+%p
+  %b Subcategory:
+  = @item.subcategory_id
+%p
+  %b Designer:
+  = @item.designer
+%p
+  %b Size:
+  = @item.size
+%p
+  %b Image:
+  = @item.image
+%p
+  %b Quantity:
+  = @item.quantity
+%p
+  %b Purchase date:
+  = @item.purchase_date
+%p
+  %b Closet:
+  = @item.closet_id
+
+= link_to 'Edit', edit_item_path(@item)
+\|
+= link_to 'Back', items_path

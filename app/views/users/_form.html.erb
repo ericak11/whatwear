@@ -1,0 +1,28 @@
+  <%= form.label :email  %>
+<div class="inline fields">
+  <%= form.text_field :email, type: 'email' %>
+</div>
+<%= form.label :name %>
+<div class="inline fields">
+  <div class="three wide field">
+    <%= form.text_field :first_name, placeholder: 'First Name' %>
+  </div>
+  <div class="three wide field">
+    <%= form.text_field :last_name, placeholder: 'Last Name' %>
+  </div>
+</div>
+<%= form.label :password %>
+<div class="inline fields">
+  <div class="three wide field">
+    <%= form.password_field :password, placeholder: 'Password' %>
+  </div>
+  <div class="three wide field">
+    <%= form.password_field :password_confirmation, placeholder: 'Re-Type Password' %>
+  </div>
+</div>
+<% if params[:action] == 'edit' %>
+  <div class="" style="font-size:20px;">
+    <%= form.check_box :member%>
+    <%= form.check_box :admin %>
+  </div>
+<% end %>

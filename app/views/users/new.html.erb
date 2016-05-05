@@ -1,0 +1,20 @@
+<div id="clearance" class="ui equal width form">
+  <h2><%= t(".title") %></h2>
+
+  <%= form_for @user do |form| %>
+    <% if @user.errors.any? %>
+      <div class="ui red message closable">
+        <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= render partial: '/users/form', object: form %>
+
+    <div class="submit-field right  menu">
+      <%= form.submit class: "ui button " %>
+    </div>
+  <% end %>
+</div>

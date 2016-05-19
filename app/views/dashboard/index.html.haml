@@ -1,1 +1,22 @@
-%p Welcome
+%h1 Welcome #{@user.name}
+
+%div
+  %h2.ui.header
+    %i.circular.home.icon
+    %div.content
+      Your Closets
+      %div.sub.header
+        = link_to new_closet_path, class: "" do
+          Add a Closet
+
+  - if @closets.present?
+    %p closets
+
+%br
+%div
+  %h2.ui.header
+    %i.circular.tags.icon
+    %div.content
+      Your Items
+  - if @items.any?
+    %p items

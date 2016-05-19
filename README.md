@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## README
 
 This README would normally document whatever steps are necessary to get the
@@ -23,7 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-=======
-# whatwear
-An app for tracking where your belongings are.
->>>>>>> 12c8b87e733a25488b8db7b80105c26ddae441c5

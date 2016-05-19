@@ -1,6 +1,7 @@
-%a.item Home
-%a.item Closets
-%a.item Items
+%div.link.item
+  = link_to "Home", root_path,  class: ""
+%div.link.item
+  = link_to "Closets", closets_path,  class: ""
 %div.right.menu
   %div.item
     = link_to sign_out_path, method: :delete, class: "ui primary button" do

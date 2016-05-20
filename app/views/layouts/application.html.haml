@@ -9,7 +9,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
   %body
     - if current_user.present?
-      %div.ui.stackable.menu
+      %div.ui.stackable.menu.inverted
         = render "layouts/header"
     - else
       %br

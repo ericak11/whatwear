@@ -1,25 +1,24 @@
-%h1 Listing closets
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Location
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @closets.each do |closet|
-      %tr
-        %td= closet.name
-        %td= closet.location
-        %td= closet.user_id
-        %td= link_to 'Show', closet
-        %td= link_to 'Edit', edit_closet_path(closet)
-        %td= link_to 'Destroy', closet, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+%div.ui.center.aligned.icon.header
+  %i.circular.home.icon
+  %div.content
+    %h1 #{current_user.first_name}'s Closets
+    %div.sub.header
+      = link_to new_closet_path, class: "" do
+        Add a Closet
+%div.ui.three.doubling.cards
+  - @closets.each do |closet|
+    %div.card
+      = link_to closet_path(closet), class: "image small" do
+        - if closet.image.present?
+          %img{src: "#{closet.image.url(:thumb) }"}
+        - else
+          %img{src: "/closet1.png"}
+      %div.content
+        %p.header.center= closet.name
+        %div.meta= closet.location if closet.location.present?
+      %div.extra.content
+        %div.ui.two.buttons
+          = link_to 'View Closet', closet, class: "ui basic blue button"
+          = link_to 'Add Items', edit_closet_path(closet), class: "ui basic green button"
 %br
 
-= link_to 'New Closet', new_closet_path

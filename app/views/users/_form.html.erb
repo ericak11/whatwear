@@ -25,9 +25,3 @@
     <%= form.password_field :password_confirmation, placeholder: 'Re-Type Password' %>
   </div>
 </div>
-<% if params[:action] == 'edit' %>
-  <div class="" style="font-size:20px;">
-    <%= form.check_box :member%>
-    <%= form.check_box :admin %>
-  </div>
-<% end %>

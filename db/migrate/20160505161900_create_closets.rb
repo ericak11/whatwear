@@ -4,6 +4,7 @@ class CreateClosets < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :location
       t.integer :owner_id
+      t.attachment :image
 
       t.timestamps
     end

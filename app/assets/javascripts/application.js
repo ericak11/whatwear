@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require semantic_ui/semantic_ui
 //= require_tree .
+//
+//
+//
+window.addEventListener("load", function(){
+  $('.submit').on("click", function(){
+    $('div.form').addClass("loading");
+  });
+});

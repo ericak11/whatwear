@@ -10,8 +10,23 @@
           Add a Closet
 
   - if @closets.present?
-    %p closets
-
+    %div.ui.four.doubling.cards
+      - @closets.each do |closet|
+        %div.card
+          = link_to closet_path(closet), class: "image small" do
+            - if closet.image.present?
+              %img{src: "#{closet.image.url(:thumb) }"}
+            - else
+              %img{src: "/closet1.png"}
+          %div.content
+            %p.header= closet.name
+            %div.meta= closet.location if closet.location.present?
+    - if Closet.all.count > 8
+      %br
+      = link_to  closets_path , class: "ui right floated button" do
+        %i.plus.icon
+        See More
+%br
 %br
 %div
   %h2.ui.header

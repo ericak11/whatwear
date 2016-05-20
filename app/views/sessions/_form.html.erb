@@ -1,4 +1,4 @@
-<div class="ui two column middle aligned very relaxed stackable grid">
+<div class="ui two column middle aligned very relaxed stackable grid" style='position:relative;'>
   <div class="column">
     <div class="ui form">
       <%= form_for :session, url: session_path do |form| %>
@@ -30,7 +30,7 @@
     Or
   </div>
   <div class="center aligned column">
-      <%= link_to sign_up_path, class: "ui big green labeled icon button" do %>
+      <%= link_to sign_up_path, class: "ui big green labeled icon submit button" do %>
         <i class="signup icon"></i>
         Sign Up
       <% end %>

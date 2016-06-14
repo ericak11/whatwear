@@ -1,37 +1,38 @@
-= form_for @item do |f|
-  - if @item.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
-      %ul
-        - @item.errors.full_messages.each do |msg|
-          %li= msg
+%div.ui.form
+  = form_for [@closet, @item] do |f|
+    - if @item.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
+        %ul
+          - @item.errors.full_messages.each do |msg|
+            %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :subcategory_id
-    = f.text_field :subcategory_id
-  .field
-    = f.label :designer
-    = f.text_field :designer
-  .field
-    = f.label :size
-    = f.text_field :size
-  .field
-    = f.label :image
-    = f.text_field :image
-  .field
-    = f.label :quantity
-    = f.number_field :quantity
-  .field
-    = f.label :purchase_date
-    = f.text_field :purchase_date
-  .field
-    = f.label :closet_id
-    = f.number_field :closet_id
-  .actions
-    = f.submit 'Save'
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :description
+      = f.text_field :description
+    .field
+      = f.label :subcategory_id
+      = f.text_field :subcategory_id
+    .field
+      = f.label :designer
+      = f.text_field :designer
+    .field
+      = f.label :size
+      = f.text_field :size
+    .field
+      = f.label :image
+      = f.file_field :image
+    .field
+      = f.label :quantity
+      = f.number_field :quantity
+    .field
+      = f.label :purchase_date
+      = f.text_field :purchase_date, id: 'datepicker'
+    .field
+      = f.hidden_field :closet_id, value: @closet.id
+    .actions
+      = f.submit 'Save', class: "ui submit button", id: "item_form"
+

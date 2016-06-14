@@ -1,12 +1,44 @@
 %p#notice= notice
+%div.ui.centered.header
+  %div.ui.small.circular.image
+    - if @closet.image.present?
+      %img{src: "#{@closet.image.url(:thumb) }"}
+    - else
+      %img{src: "/closet1.png"}
+  %div.content
+    %h2
+      = @closet.name
+      %span.sub.header #{@closet.location}
 
-%p
-  %b Name:
-  = @closet.name
-%p
-  %b Location:
-  = @closet.location
+    %div.ui.tiny.buttons
+      = link_to new_closet_item_path(@closet) do
+        %div.ui.blue.button
+          %i.add.icon
+          Add Items
+      %div.or
+      = link_to edit_closet_path(@closet) do
+        %div.ui.green.button
+          %i.edit.icon
+          Edit Closet
 
-= link_to 'Edit', edit_closet_path(@closet)
-\|
-= link_to 'Back', closets_path
+- if @items.any?
+  %div.ui.three.doubling.cards
+    - @items.each do |item|
+      %div.card
+        = link_to closet_path(closet), class: "image small" do
+          - if closet.image.present?
+            %img{src: "#{closet.image.url(:thumb) }"}
+          - else
+            %img{src: "/closet1.png"}
+        %div.content
+          %p.header.center= closet.name
+          %div.meta= closet.location if closet.location.present?
+        %div.extra.content
+          %div.ui.two.buttons
+            = link_to 'View Closet', closet, class: "ui basic blue button"
+            = link_to 'Add Items', edit_closet_path(closet), class: "ui basic green button"
+  %br
+- else
+  %div.ui.centered.header
+    %p There are no items in your closet
+
